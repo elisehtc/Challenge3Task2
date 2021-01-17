@@ -1,0 +1,17 @@
+version: '3'
+services:
+  balancer:
+    build: ./
+    networks:
+      - worker1
+      - worker2
+    ports:
+      - 80:80
+
+networks:
+  worker1:
+    external:
+      name: worker1_default
+  worker2:
+    external:
+      name: worker2_default
